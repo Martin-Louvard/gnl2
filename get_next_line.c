@@ -6,9 +6,21 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:41:17 by malouvar          #+#    #+#             */
-/*   Updated: 2021/12/01 13:03:40 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/12/01 13:13:59 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+size_t  ft_strlen(const char *s)
+{
+        size_t  i;
+
+        if (!s)
+                return (0);
+        i = 0;
+        while (s[i] != '\0')
+                i++;
+        return (i);
+}
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -34,6 +46,18 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	ft_memset(result, 0,  nmemb * size);
 	return (result);
+}
+
+char	*ft_strjoin(char *line, char *buff, int	r)
+{
+	size_t	line_len;
+	char	*new;
+	
+	line_len = ft_strlen(line);
+	new = malloc(sizeof(char) * (line_len + r));
+	if (!new)
+		return (NULL);
+
 }
 
 char	*get_next_line(int fd)
