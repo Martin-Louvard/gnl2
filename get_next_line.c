@@ -6,7 +6,7 @@
 /*   By: malouvar <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/01 12:41:17 by malouvar          #+#    #+#             */
-/*   Updated: 2021/12/01 12:56:30 by malouvar         ###   ########.fr       */
+/*   Updated: 2021/12/01 13:03:40 by malouvar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ char	*get_next_line(int fd)
 	{
 		r = read(fd, buff, BUFFER_SIZE);
 		buff[BUFFER_SIZE] = 0;
+		if (r <= 0)
+			return (NULL);
+		line = ft_strjoin(line, buff, r);
 	}
-
+	free (buff);
+	buff = NULL;
+	return (line);
 }
